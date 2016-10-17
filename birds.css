@@ -1,0 +1,166 @@
+/* birds.css - styles for combinator birds */
+
+/* combinator body */
+.combinator {
+	border-radius:0%;
+	border-color:black;
+	border-width:1px;
+	border-style:dotted;
+	
+	margin-left: 4px;
+	margin-right:5px; /* 4px? */
+	
+	background-color:white;
+	
+	min-width:40px;
+	min-height:20px;
+	max-width: 400px;
+	
+	position:relative;
+	display:inline-block;
+	
+}
+.combinator.betareduced { /* untested */
+	border:none;
+	margin-left:0px;
+	margin-right:0px;
+}
+
+.rhyme {
+	min-width:10px;
+	/* width:15px; */
+	height:100%;
+	/* margin-right:10px;  removed:use  */
+	display:inline-block;
+	position:relative;
+	left:0px;
+}
+.norhyme-container {
+	display:inline-block;
+	/* margin-left: 10px; */
+}
+
+/* leftcircle and rightcircle */
+.leftcircle {
+	background-color:black;
+	border-bottom-left-radius:5px;
+	border-top-left-radius:5px;
+	width: 5px;
+	height: 10px;
+	position:absolute;
+}
+	
+.rightcircle {
+	background-color:black;
+	border-bottom-right-radius:5px;
+	border-top-right-radius:5px;
+	width:5px;
+	height:10px;
+	position:absolute;
+}
+
+.combinator > .leftcircle{
+	right:100%;
+	bottom:5px;
+}
+.combinator > .rightcircle{
+	left:100%;
+	bottom:5px;
+}
+.apply > .leftcircle{
+	right:0%;
+	bottom:-5px;
+}
+.apply > .rightcircle{
+	left:100%;
+	bottom:-5px;
+}
+
+/* turndown from top half to bottom half */
+.turndown {
+	border-top: 1px;
+	border-left: 0px;
+	border-right: 1px;
+	border-bottom: 0px;
+	border-style: solid;
+	
+	/*margin-right:0px;  positioning??  #removed
+	margin-left:0px;*/
+	
+	position:relative;
+	height:10px; /* up to combinator's rightcircle. */
+	min-width:20px;
+	/* width always the same as apply, eg
+	* .-----------.
+	* |___________|---.
+	* ----------------O---   (no combinator on the bottom is a <continue>)
+	* OR
+	* 
+	* -(-------)---.   <-- turndown is same length, but apply is taller     abc > `a`bc
+	*              |
+	* -(------.)   |
+	* -(------O)---O---
+	* apply must be auto; turndown also auto?  (apply has min-width that matches with turndown minwidth)
+	*/
+}
+.combinator + .turndown {
+	display:inline-block;
+	left:-1px; /* account for border of combinator */
+}
+
+/* apply in bottom half */
+.apply { /* may overlap with turndown */
+	border-right: 1px;
+	border-bottom:1px;
+	border-left:0px;
+	border-top:0px;
+	border-style: solid;
+	
+	/*margin-right: 0px;  removed */
+	
+	min-width:20px;
+	min-height:20px;
+	/* height: auto | 100% ; */
+	
+	position:relative;
+	left:-1px;
+	bottom:10px; /* match up with combinator circle */
+}
+.combinator + .apply {
+	display:inline-block; /* the combinator too */
+}
+
+.continue {
+	border-top:1px solid;
+	position:relative;
+	min-width:20px;
+	height:10px; /* up to apply's rightcircle. */
+	top:10px; /* for passthrough;  50% is not working in firefox :( */
+}
+.norhyme-container + .continue {
+	display:inline-block;
+	top:0px;
+}
+
+
+/* rhyme */
+line {
+	stroke:black;
+	stroke-width:1px;  /* or .7px and no crispEdges (scales better) */
+	shape-rendering:crispEdges;
+}
+.rhyme > svg {
+	min-width:10px;
+	min-height:10px;
+	height: inherit;
+	max-width:30px;
+}
+
+div.combinator :focus :before {
+	/* on hover, show options/code/etc */
+}
+div.combinator :hover {
+	/* show which is selected (make sure only one, not parents/children?) */
+}
+
+

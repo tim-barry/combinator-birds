@@ -1,0 +1,13 @@
+/* main.css - styles for page */
+
+.bird-sidebar {
+	background:lightblue;
+	
+}
+
+.bird-sidebar > .combinatorcard {
+	border-radius:10px;
+	padding: 10px 10px 10px 10px;
+	margin-top: 10px;
+}
+
