@@ -103,10 +103,14 @@
 	* apply must be auto; turndown also auto?  (apply has min-width that matches with turndown minwidth)
 	*/
 }
+.top > .turndown {
+	display: inline-block;
+}
 .combinator + .turndown {
 	display:inline-block;
 	left:-1px; /* account for border of combinator */
 }
+
 
 /* apply in bottom half */
 .apply { /* may overlap with turndown */
@@ -126,9 +130,13 @@
 	left:-1px;
 	bottom:10px; /* match up with combinator circle */
 }
+.bottom > .apply {
+	display:inline-block;
+}
 .combinator + .apply {
 	display:inline-block; /* the combinator too */
 }
+
 
 .continue {
 	border-top:1px solid;
@@ -141,7 +149,9 @@
 	display:inline-block;
 	top:0px;
 }
-
+.top > .continue, .bottom > .continue {
+	display:inline-block
+}
 
 /* rhyme */
 line {
