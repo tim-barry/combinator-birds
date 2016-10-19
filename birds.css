@@ -37,7 +37,7 @@
 }
 .norhyme-container {
 	display:inline-block;
-	/* margin-left: 10px; */
+	margin-top: 4px;
 }
 
 /* leftcircle and rightcircle */
@@ -61,11 +61,11 @@
 
 .combinator > .leftcircle{
 	right:100%;
-	bottom:5px;
+	bottom:10px;
 }
 .combinator > .rightcircle{
 	left:100%;
-	bottom:5px;
+	bottom:10px;
 }
 .apply > .leftcircle{
 	right:0%;
@@ -75,6 +75,11 @@
 	left:100%;
 	bottom:-5px;
 }
+/* more special things for I */
+.combinator > .leftcircle:nth-child(2) , .combinator > .rightcircle:nth-child(3) {
+	bottom:5px;
+}
+
 
 /* turndown from top half to bottom half */
 .turndown {
@@ -103,10 +108,10 @@
 	* apply must be auto; turndown also auto?  (apply has min-width that matches with turndown minwidth)
 	*/
 }
-.top > .turndown {
+/*.top > .turndown {
 	display: inline-block;
-}
-.combinator + .turndown {
+}*/
+.combinator + .turndown, .continue + .turndown {
 	display:inline-block;
 	left:-1px; /* account for border of combinator */
 }
@@ -143,15 +148,18 @@
 	position:relative;
 	min-width:20px;
 	height:10px; /* up to apply's rightcircle. */
-	top:10px; /* for passthrough;  50% is not working in firefox :( */
 }
 .norhyme-container + .continue {
 	display:inline-block;
 	top:0px;
 }
-.top > .continue, .bottom > .continue {
+.combinator > .continue:first-child { /* for I only (inconsistent, change?*/
+	top:10px;  /* 50% is not working in firefox :( */
+}
+.top > .continue, .bottom > .continue {  /* most important, esp in basic combinators */
 	display:inline-block
 }
+
 
 /* rhyme */
 line {

@@ -3,22 +3,27 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<title>Birds WIP</title>
+	<title>Testing CSS</title>
 	<link rel='stylesheet' type='text/css' href='birds.css'>
 	<!-- <link rel='stylesheet' type='text/css' href='animation.css'> -->
+	<!-- <script type='javascript' src='combinators.js'> -->
+	<!-- <script type='javascript' src='draganddrop.js'> -->
 </head>
 <body>
 	<div class='norhyme-container' id='test1'> <!-- making an omega (w) -->
 	<div class='combinator'>
-		<!-- WIP -->
+		
 		<div class='rhyme'>
 			<svg style="height: 30px; position: relative; top: 1px; border: 0px none; margin: 0px; padding: 0px;" width="100%">
 				<line x1="0%" x2="100%" y1="75%" y2="75%"></line>
 				<line y1="75%" x1="0%" x2="100%" y2="25%"></line>
 			</svg>
 		</div><div class='norhyme-container'>
-			<div class='top'><div class='continue'></div><div class='turndown'></div>
-			</div><div class='bottom'><div class='continue'></div><div class='apply'></div></div>
+			<div class='top'>
+				<div class='continue'></div><div class='turndown'></div>
+			</div><div class='bottom'>
+				<div class='continue'></div><div class='apply'></div>
+			</div>
 		</div><div class='continue'></div>
 		<div class='leftcircle'></div><div class='rightcircle'></div>
 	</div><div class='apply'>  <!-- no whitespace between elements-->
@@ -39,7 +44,7 @@
 		</svg>
 		</div><div class='norhyme-container'>
 			<div> <!-- first (top part of tree)-->
-				<div class='combinator'>
+				<div class='combinator'> <!-- I (simplest bird) -->
 					<div class='continue'></div>
 					<div class='leftcircle'></div>
 					<div class='rightcircle'></div>
@@ -47,6 +52,7 @@
 			</div>
 			<div> <!-- bottom part of tree and apply-->
 				<div class='combinator'>
+					<div class='continue'></div>
 					<div class='leftcircle'></div>
 					<div class='rightcircle'></div>
 				</div><div class='apply'>  <!-- no whitespace -->
