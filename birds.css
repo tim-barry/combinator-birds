@@ -1,5 +1,15 @@
 /* birds.css - styles for combinator birds */
 
+html, body, div, span, svg {
+	margin: 0;
+	border: 0;
+	padding:0;
+}
+html, body, div {
+	line-height:0;
+}
+.text { line-height:initial; }
+
 /* combinator body */
 .combinator {
 	border-radius:0%;
@@ -8,7 +18,10 @@
 	border-style:dotted;
 	
 	margin-left: 4px;
-	margin-right:5px; /* 4px? */
+	margin-right:4px; /* border adds an extra 1px */
+	
+	padding-top:5px;
+	padding-bottom:5px;
 	
 	background-color:white;
 	
@@ -18,6 +31,7 @@
 	
 	position:relative;
 	display:inline-block;
+	vertical-align: bottom;
 	
 }
 .combinator.betareduced { /* untested */
@@ -34,13 +48,14 @@
 	display:inline-block;
 	position:relative;
 	left:0px;
+	vertical-align:top;
 }
 .norhyme-container {
 	display:inline-block;
-	margin-top: 4px;
+	/*margin-top: 4px;*/
 }
 
-/* leftcircle and rightcircle */
+/* leftcircle and rightcircle -- use :before/:after instead? */
 .leftcircle {
 	background-color:black;
 	border-bottom-left-radius:5px;
@@ -95,10 +110,11 @@
 	position:relative;
 	height:10px; /* up to combinator's rightcircle. */
 	min-width:20px;
+	
 	/* width always the same as apply, eg
 	* .-----------.
-	* |___________|---.
-	* ----------------O---   (no combinator on the bottom is a <continue>)
+	* |___________| ---.
+	* ------------- ---O---   (no combinator on the bottom is a <continue>)
 	* OR
 	* 
 	* -(-------)---.   <-- turndown is same length, but apply is taller     abc > `a`bc
@@ -113,27 +129,23 @@
 }*/
 .combinator + .turndown, .continue + .turndown {
 	display:inline-block;
-	left:-1px; /* account for border of combinator */
 }
 
 
 /* apply in bottom half */
-.apply { /* may overlap with turndown */
+.apply { /* may overlap with turndown ?? */
 	border-right: 1px;
 	border-bottom:1px;
 	border-left:0px;
 	border-top:0px;
 	border-style: solid;
 	
-	/*margin-right: 0px;  removed */
-	
 	min-width:20px;
-	min-height:20px;
-	/* height: auto | 100% ; */
+	min-height:15px;
+	height: 100% ;
 	
 	position:relative;
-	left:-1px;
-	bottom:10px; /* match up with combinator circle */
+	bottom:10px; /* match up with combinator rightcircle */
 }
 .bottom > .apply {
 	display:inline-block;
@@ -147,17 +159,19 @@
 	border-top:1px solid;
 	position:relative;
 	min-width:20px;
-	height:10px; /* up to apply's rightcircle. */
+	height:10px; /* up to apply's rightcircle = combinator's rightcircle. */
 }
 .norhyme-container + .continue {
 	display:inline-block;
 	top:0px;
 }
-.combinator > .continue:first-child { /* for I only (inconsistent, change?*/
-	top:10px;  /* 50% is not working in firefox :( */
+.combinator > .continue:first-child { /* for I only (inconsistent, change?)*/
+	/*top:10px;  /* 50% is not working in firefox :( */
+	height:0px;
 }
 .top > .continue, .bottom > .continue {  /* most important, esp in basic combinators */
-	display:inline-block
+	display:inline-block;
+	vertical-align:bottom;
 }
 
 
