@@ -4,6 +4,7 @@ html, body, div, span, svg {
 	margin: 0;
 	border: 0;
 	padding:0;
+	box-sizing:border-box;
 }
 html, body, div {
 	line-height:0;
@@ -20,8 +21,6 @@ html, body, div {
 	margin-left: 4px;
 	margin-right:4px; /* border adds an extra 1px */
 	
-	padding-top:5px;
-	padding-bottom:5px;
 	
 	background-color:white;
 	
@@ -34,11 +33,29 @@ html, body, div {
 	vertical-align: bottom;
 	
 }
-.combinator.betareduced { /* untested */
+
+.combinator .betareduced { /* untested */
 	border:none;
 	margin-left:0px;
 	margin-right:0px;
 }
+
+.top > .combinator {
+	margin-top: 5px;
+}
+.bottom > .combinator {
+	margin-top:5px;
+	margin-bottom:5px;
+	bottom: auto;
+}
+
+.simple-combinator {
+	bottom:5px;  /* equalize applycircle height with other combinators */
+}
+.top > .simple-combinator {
+	bottom:0px;
+}
+/* use margin-bottom? */
 
 .rhyme {
 	min-width:10px;
@@ -90,10 +107,14 @@ html, body, div {
 	left:100%;
 	bottom:-5px;
 }
-/* more special things for I */
-.combinator > .leftcircle:nth-child(2) , .combinator > .rightcircle:nth-child(3) {
+
+/* more special things for I etc */
+.simple-combinator > .leftcircle , .simple-combinator > .rightcircle {
 	bottom:5px;
+	/* a combinator that does not contain any sub-combinator on the bottom */
 }
+
+
 
 
 /* turndown from top half to bottom half */
@@ -145,13 +166,13 @@ html, body, div {
 	height: 100% ;
 	
 	position:relative;
-	bottom:10px; /* match up with combinator rightcircle */
-}
-.bottom > .apply {
+	margin-bottom:10px; /* match up with combinator rightcircle */
 	display:inline-block;
 }
+/* .bottom > .apply {}  */
 .combinator + .apply {
 	display:inline-block; /* the combinator too */
+	bottom:5px
 }
 
 
@@ -160,19 +181,28 @@ html, body, div {
 	position:relative;
 	min-width:20px;
 	height:10px; /* up to apply's rightcircle = combinator's rightcircle. */
+	
+/*	bottom:5px;*/
 }
 .norhyme-container + .continue {
 	display:inline-block;
-	top:0px;
+	top:auto;
 }
 .combinator > .continue:first-child { /* for I only (inconsistent, change?)*/
-	/*top:10px;  /* 50% is not working in firefox :( */
 	height:0px;
+	margin-top:10px; 
 }
 .top > .continue, .bottom > .continue {  /* most important, esp in basic combinators */
 	display:inline-block;
 	vertical-align:bottom;
+	margin-top:10px;
 }
+
+/*
+.simple-combinator > .continue {
+	margin-bottom:0px;
+}*/
+
 
 
 /* rhyme */

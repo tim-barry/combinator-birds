@@ -11,7 +11,7 @@
 </head>
 <body>
 	<div class='norhyme-container' id='test1'> <!-- making an omega (w) -->
-	<div class='combinator'>
+	<div class='combinator simple-combinator'>
 		
 		<div class='rhyme'>
 			<svg style="height: 30px; position: relative; border: 0px none; margin: 0px; padding: 0px;" width="100%">
@@ -43,15 +43,15 @@
 			<line y1="75%" x1="0%" x2="100%" y2="25%"></line>
 		</svg>
 		</div><div class='norhyme-container'>
-			<div> <!-- first (top part of tree)-->
-				<div class='combinator'> <!-- I (simplest bird) -->
+			<div class='top'> <!-- first (top part of tree)-->
+				<div class='combinator simple-combinator'> <!-- I (simplest bird) -->
 					<div class='continue'></div>
 					<div class='leftcircle'></div>
 					<div class='rightcircle'></div>
 				</div><div class='turndown'></div> <!-- going to next apply -->
 			</div>
-			<div> <!-- bottom part of tree and apply-->
-				<div class='combinator'>
+			<div class='bottom'> <!-- bottom part of tree and apply-->
+				<div class='combinator simple-combinator'>
 					<div class='continue'></div>
 					<div class='leftcircle'></div>
 					<div class='rightcircle'></div>
@@ -60,7 +60,8 @@
 					<div class='rightcircle'></div>
 				</div>
 			</div>
-		</div><div class='continue'></div> <!-- no whitespace -->
+		</div><div class='continue'>
+		</div><div class='leftcircle'></div><div class='rightcircle'></div> <!-- no whitespace -->
 	</div>
 </body>
 </html>
