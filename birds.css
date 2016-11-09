@@ -13,14 +13,12 @@ html, body, div {
 
 /* combinator body */
 .combinator {
-	border-radius:0%;
 	border-color:black;
 	border-width:1px;
 	border-style:dotted;
 	
 	margin-left: 4px;
 	margin-right:4px; /* border adds an extra 1px */
-	
 	
 	background-color:white;
 	
@@ -110,7 +108,7 @@ html, body, div {
 
 /* more special things for I etc */
 .simple-combinator > .leftcircle , .simple-combinator > .rightcircle {
-	bottom:5px;
+	bottom:4px;
 	/* a combinator that does not contain any sub-combinator on the bottom */
 }
 
@@ -124,9 +122,6 @@ html, body, div {
 	border-right: 1px;
 	border-bottom: 0px;
 	border-style: solid;
-	
-	/*margin-right:0px;  positioning??  #removed
-	margin-left:0px;*/
 	
 	position:relative;
 	height:10px; /* up to combinator's rightcircle. */
@@ -142,12 +137,11 @@ html, body, div {
 	*              |
 	* -(------.)   |
 	* -(------O)---O---
-	* apply must be auto; turndown also auto?  (apply has min-width that matches with turndown minwidth)
+	* (apply has min-width that matches with turndown minwidth)
+	* .apply must have 100% height of div.bottom
 	*/
 }
-/*.top > .turndown {
-	display: inline-block;
-}*/
+/*.top > .turndown,*/
 .combinator + .turndown, .continue + .turndown {
 	display:inline-block;
 }
@@ -162,27 +156,28 @@ html, body, div {
 	border-style: solid;
 	
 	min-width:20px;
-	min-height:15px;
+	min-height:20px;
 	height: 100% ;
 	
 	position:relative;
-	margin-bottom:10px; /* match up with combinator rightcircle */
+	margin-bottom:9px; /* match up with combinator rightcircle */
 	display:inline-block;
 }
 /* .bottom > .apply {}  */
 .combinator + .apply {
 	display:inline-block; /* the combinator too */
-	bottom:5px
+	bottom:5px;
 }
-
+.simple-combinator > .norhyme-container > .bottom > .apply {
+	min-height:15px;
+}
 
 .continue {
 	border-top:1px solid;
 	position:relative;
 	min-width:20px;
-	height:10px; /* up to apply's rightcircle = combinator's rightcircle. */
-	
-/*	bottom:5px;*/
+	margin-bottom:9px; /* up to apply's rightcircle = combinator's rightcircle. */
+	bottom:5px;
 }
 .norhyme-container + .continue {
 	display:inline-block;
@@ -190,19 +185,16 @@ html, body, div {
 }
 .combinator > .continue:first-child { /* for I only (inconsistent, change?)*/
 	height:0px;
-	margin-top:10px; 
+	margin-top:9px; 
 }
 .top > .continue, .bottom > .continue {  /* most important, esp in basic combinators */
 	display:inline-block;
 	vertical-align:bottom;
 	margin-top:10px;
 }
-
-/*
-.simple-combinator > .continue {
-	margin-bottom:0px;
-}*/
-
+.simple-combinator > .continue , .simple-combinator > .norhyme-container > div > .continue {
+	bottom:auto;
+}
 
 
 /* rhyme */
