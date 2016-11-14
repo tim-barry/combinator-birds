@@ -33,10 +33,14 @@ html, body, div {
 }
 
 .combinator .betareduced { /* untested */
-	border:none;
+	border-color: transparent; /* still take up space in box model and not mess up positioning */
 	margin-left:0px;
 	margin-right:0px;
 }
+.betareduced > .leftcircle, .betareduced > .rightcircle {
+	display:none;
+}
+
 
 .top > .combinator {
 	margin-top: 5px;
