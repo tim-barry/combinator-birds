@@ -1,4 +1,24 @@
 /* animation.css */
+:root{
+	--rhyme-time: 2000ms;
+}
+
+/* Rhyme transitions */
+line {
+	stroke-dasharray: 100% 100%;  /* to animate:  element.style.strokeDashoffset = "-100%" */
+	stroke-dashoffset: 0%;  /* initial */
+	transition: stroke-dashoffset var(--rhyme-time) linear;
+}
+/* untested:
+
+.top, .bottom {
+	transition: height var(--rhyme-time);
+}
+.combinator .moving-rhyme {
+	transition: top var(--rhyme-time), right var(--rhyme-time);
+}
+*/
+
 
 /* animation property:
  *   name duration delay iteration-count direction,  ... */

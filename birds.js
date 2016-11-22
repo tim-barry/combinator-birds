@@ -7,7 +7,7 @@ function apply(elem,input){ //  (|input|)---(|elem|)...
 	 * animate(input.right, elem.left);
 	 * elem.classList.append("betareduced")  (if it is the ear of the bird)
 	 * duplicate (or remove!) combinator at rhyme if necessary
-	 * reverse animate each from rhyme beginning to end, erasing rhyme lines
+	 * reverse animate each from rhyme beginning to end, {erasing rhyme lines}
 	 * smoothly animate containing combinator to correct size?
 	 *   - absolute v. relative positioning;  overflow must be visible (positioned outside content box)
 	 * if there is already a combinator: apply immediately vs. add to the list of 'ready' combinators:
